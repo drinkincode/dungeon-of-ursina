@@ -9,15 +9,21 @@ Python 3.10 or newer
 ```
 python -m pip install ursina
 ```
-
 ## Test Installation
 **Run example game with the following command**
 ```
 python ./ursina_example_game.py
 ```
-
-**Run example animated game with the following command**
+## Examples
+**Animation**
 ```
-python ./animated_ex.py
+python ./animation_ex.py
 ```
-
+**Inventory**
+```
+python ./inventory_ex.py
+```
+**Custom Assets**
+```
+python ./custom_assest_ex.py
+```
