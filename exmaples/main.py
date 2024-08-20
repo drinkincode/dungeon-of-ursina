@@ -38,3 +38,5 @@ input_handler.bind('gamepad a', 'space')
 # player.add_script(NoclipMode2d())
 
 app.run()
+
+
