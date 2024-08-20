@@ -27,3 +27,5 @@ python ./inventory_ex.py
 ```
 python ./custom_assest_ex.py
 ```
+
+TEST
