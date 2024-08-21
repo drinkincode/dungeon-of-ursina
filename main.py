@@ -3,38 +3,40 @@ import time
 
 from ursina import *
 from ursina.prefabs.platformer_controller_2d import PlatformerController2d
+from maps.map import Room, Map
 
 # window.vsync = False
 window.borderless = False
 app = Ursina()
+
 window.color = color.light_gray
 camera.orthographic = True
 camera.fov = 20
-ground = Entity(model='cube', color=color.olive.tint(-.4), z=-.1, y=-1, origin_y=.5, scale=(1000,100,10), collider='box', ignore=True)
+# ground = Entity(model='cube', color=color.olive.tint(-.4), z=-.1, y=-1, origin_y=.5, scale=(1000,100,10), collider='box', ignore=True)
 
-random.seed(5)
-for i in range(10):
-    Entity(model='cube', color=color.dark_gray, collider='box', ignore=True, position=(random.randint(-20,20), random.randint(0,10)), scale=(random.randint(1,20), random.randint(2,5), 10))
-# ground = Entity(model='cube', color=color.white33, origin_y=.5, scale=(20, 10, 1), collider='box')
-# wall = Entity(model='cube', color=color.azure, origin=(-.5,.5), scale=(5,10), x=10, y=.5, collider='box')
-# ceiling = Entity(model='cube', color=color.white33, origin_y=.5, scale=(10, 1, 1), y=4, collider='box')
+# create_map(5)
 
-player = PlatformerController2d()
+# Define the map layout
+room1 = Room(position=(0, 0), scale=(4, 3), label="Loot")
+room2 = Room(position=(5, 0), scale=(3, 3), label="Level Exit")
+room3 = Room(position=(0, -4), scale=(3, 3), label="Loot")
+room4 = Room(position=(-5, 0), scale=(3, 3), label="Loot")
+
+# Boarder Walls
+map_1 = Map()
+
+# Add interactive elements
+loot1 = Entity(model='sphere', color=color.gold, scale=0.5, position=(0.5, -0.5, 0), parent=room1)
+loot2 = Entity(model='sphere', color=color.gold, scale=0.5, position=(-0.5, -0.5, 0), parent=room3)
+
+player = PlatformerController2d(gravity=0)
 player.x=1
 player.y = raycast(player.world_position, player.down).world_point[1] + .01
-camera.add_script(SmoothFollow(target=player, offset=[0,5,-30], speed=4))
+# camera.add_script(SmoothFollow(target=player, offset=[0,5,-30], speed=4))
 
-
-
-input_handler.bind('right arrow', 'd')
-input_handler.bind('left arrow', 'a')
-input_handler.bind('up arrow', 'space')
-input_handler.bind('gamepad dpad right', 'd')
-input_handler.bind('gamepad dpad left', 'a')
-input_handler.bind('gamepad a', 'space')
-
-# test
-# from ursina.scripts.noclip_mode import NoclipMode2d
-# player.add_script(NoclipMode2d())
+input_handler.bind('right arrow', 'a')
+input_handler.bind('left arrow', 'd')
+input_handler.bind('up arrow', 'w')
+input_handler.bind('down arrow', 's')
 
 app.run()
