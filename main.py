@@ -12,12 +12,10 @@ app = Ursina()
 window.color = color.light_gray
 camera.orthographic = True
 camera.fov = 20
-# ground = Entity(model='cube', color=color.olive.tint(-.4), z=-.1, y=-1, origin_y=.5, scale=(1000,100,10), collider='box', ignore=True)
 
 # create_map(5)
 
 # Define the map layout
-
 
 # Boarder Walls
 map_1 = Map()
