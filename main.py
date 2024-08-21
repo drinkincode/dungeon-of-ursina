@@ -39,5 +39,4 @@ input_handler.bind('left arrow', 'd')
 input_handler.bind('up arrow', 'w')
 input_handler.bind('down arrow', 's')
 
-
 app.run()
