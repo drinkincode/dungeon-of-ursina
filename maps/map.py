@@ -1,6 +1,5 @@
 from ursina import *
 
-
 class Room(Entity):
     def __init__(self, position=(0,0,0), scale=(2,2), label=None, **kwargs):
         super().__init__(
