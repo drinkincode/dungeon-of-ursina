@@ -21,7 +21,7 @@ camera.fov = 20
 
 # Boarder Walls
 map_1 = Map()
-stat_bar = StatBar(stat_name='health', color=color.green, position=(-0.5, 0.35))
+# stat_bar = StatBar(stat_name='health', color=color.green, position=(-0.5, 0.35))
 
 # Add interactive elements
 player = Player(position=(-3, -2, 0))

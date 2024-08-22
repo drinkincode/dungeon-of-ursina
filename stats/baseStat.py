@@ -1,33 +1,38 @@
-class BaseStat():
+from ursina import *
+class BaseStat(Entity):
     
-    def __init__(self, name, statMax):
+    def __init__(self, name, statMax, color, position, scale=(0.5, 0.015), **kwargs):
+        super().__init__(
+            parent=camera.ui,
+            model='quad',
+            color=color,
+            scale=scale,
+            position=position,
+            **kwargs
+        )
         self.name = name
-        self.statPoints = statMax
+        self.stat_value = statMax
         self.statMax = statMax
         
     # return True if alive
     #   Fasle if dead
     def reduce_points(self, points):
-        self.statPoints -= points
-        if self.statPoints <= 0:
+        self.stat_value -= points
+        if self.stat_value <= 0:
             return True
         return False
     
     def add_points(self, points):
-        self.statPoints += points
-        if self.statPoints > self.statMax:
-            self.statPoints = self.statMax
+        self.stat_value += points
+        if self.stat_value > self.statMax:
+            self.stat_value = self.statMax
             return True
         return False
     
     def print_stat(self):
-        print(self.name + ': ' + str(self.statPoints))
+        print(self.name + ': ' + str(self.stat_value))
+
+    def update(self):
+        self.scale_x = self.stat_value
     
-    def get_stat_name(self):
-        return self.name
     
-    def get_stat_points(self):
-        return self.statPoints
-    
-    def get_stat_max(self):
-        return self.statMax
