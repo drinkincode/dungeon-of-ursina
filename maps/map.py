@@ -23,14 +23,14 @@ class Room(Entity):
 class Map():
     def __init__(self):
         self.walls()
-        inner_vertical = Entity(model='cube', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
-        inner_horizontal = Entity(model='cube', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
-        inner_horizontal2 = Entity(model='cube', color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
+        inner_vertical = Entity(model='cube', collider = 'box', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
+        inner_horizontal = Entity(model='cube', collider = 'box', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
+        inner_horizontal2 = Entity(model='cube', collider = 'box',  color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
     
         
     def walls(self):
         # Boarder Walls
-        lower_wall = Entity(model='cube', color=color.gray, scale=(35, 0.5, 1), position=(0, -9, 0))  # floor 
-        upper_wall = Entity(model='cube', color=color.gray, scale=(35, 0.5, 1), position=(0, 9, 0))  # ceilling
-        left_wall = Entity(model='cube', color=color.gray, scale=(0.5, 18.5, 1), position=(-17.5, 0, 0))  # left
-        right_wall = Entity(model='cube', color=color.gray, scale=(0.5, 18.5, 1), position=(17.5, 0, 0))  # right
+        lower_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(35, 0.5, 1), position=(0, -9, 0))  # floor 
+        upper_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(35, 0.5, 1), position=(0, 9, 0))  # ceilling
+        left_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(0.5, 18.5, 1), position=(-17.5, 0, 0))  # left
+        right_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(0.5, 18.5, 1), position=(17.5, 0, 0))  # right
