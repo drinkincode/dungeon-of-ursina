@@ -3,7 +3,7 @@ import time
 
 from ursina import *
 from ursina.prefabs.platformer_controller_2d import PlatformerController2d
-from maps.map import Room, Map
+from maps.map import Map
 from actors.player import Player
 
 from menus.stat_menu import StatBar
@@ -25,5 +25,5 @@ map_1 = Map()
 
 # Add interactive elements
 player = Player(position=(-3, -2, 0))
-
+# player.stat_handler.stats_dict['health'].reduce_points(0.05)
 app.run()

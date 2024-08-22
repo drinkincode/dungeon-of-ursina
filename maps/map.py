@@ -1,36 +1,47 @@
 from ursina import *
 
-class Room(Entity):
-    def __init__(self, position=(0,0,0), scale=(2,2), label=None, **kwargs):
-        super().__init__(
-            model='quad',
-            color=color.light_gray,
-            position=position,
-            scale=scale,
-            origin=(-0.5, 0.5),
-            **kwargs
-        )
-        # Add a label to the room
-        if label:
-            self.text = Text(
-                text=label, 
-                parent=self, 
-                scale=2, 
-                origin=(-0.5, -0.5),
-                position=(0.5, -0.5)
-            )
-
 class Map():
     def __init__(self):
-        self.walls()
-        inner_vertical = Entity(model='cube', collider = 'box', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
-        inner_horizontal = Entity(model='cube', collider = 'box', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
-        inner_horizontal2 = Entity(model='cube', collider = 'box',  color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
+        self.boarder_walls = BoarderWalls()
+        self.interior_walls = []
+        self.interior_walls.append(
+            Wall(name='inner_vertical', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
+        )
+        self.interior_walls.append(
+            Wall(name='inner_horizontal', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
+        )
+        self.interior_walls.append(
+            Wall(name='inner_horizontal2', color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
+        )
     
+    
+class BoarderWalls(Entity):
+    def __init__(self, walls_scale_pos_list: list = 
+            [
+                [(35, 0.5, 1), (0, -9, 0), color.gray], 
+                [(35, 0.5, 1), (0, 9, 0), color.gray],
+                [(0.5, 18.5, 1), (-17.5, 0, 0), color.gray], 
+                [(0.5, 18.5, 1), (17.5, 0, 0), color.gray]
+            ]
+        ):
+        self.wall_dict = {}
+        self.name_list = ['lower_board_wall', 'upper_board_wall', 'left_board_wall', 'right_board_wall']
+        for i in range(len(walls_scale_pos_list)):
+            name = self.name_list[i]
+            scale = walls_scale_pos_list[i][0]
+            pos = walls_scale_pos_list[i][1]
+            color = walls_scale_pos_list[i][2]
+            
+            self.wall_dict[name] = Wall(name=name, scale=scale, position=pos, color=color)
         
-    def walls(self):
-        # Boarder Walls
-        lower_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(35, 0.5, 1), position=(0, -9, 0))  # floor 
-        upper_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(35, 0.5, 1), position=(0, 9, 0))  # ceilling
-        left_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(0.5, 18.5, 1), position=(-17.5, 0, 0))  # left
-        right_wall = Entity(model='cube', collider = 'box',  color=color.gray, scale=(0.5, 18.5, 1), position=(17.5, 0, 0))  # right
+class Wall(Entity):
+    def __init__(self, name: str, scale: tuple, position: tuple, color: color):
+        
+        super().__init__(
+            model='cube', 
+            collider = 'box', 
+            color=color, 
+            scale=scale, 
+            position=position
+        )
+        self.name = name
