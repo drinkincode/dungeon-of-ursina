@@ -4,9 +4,9 @@ class Player(Entity):
     def __init__(self, **kwargs):
         super().__init__()
         self.model = 'quad'
-        self.texture = 'player_sprite'
-        self.scale_y = 4
-        self.scale_x = 2.33
+        self.texture = 'player_sprite_cropped'
+        self.scale_y = 2
+        self.scale_x = 2
         self.collider = 'box'
         self.speed = 5
         self.did_collide = False
@@ -18,7 +18,7 @@ class Player(Entity):
 
     def update(self):
         self.movement()
-        
+            
     def movement(self):
         self.set_movement_controls('w', 's', 'a', 'd')
                  
