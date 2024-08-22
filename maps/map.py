@@ -2,7 +2,7 @@ from ursina import *
 
 class Map():
     def __init__(self):
-        self.boarder_walls = BoarderWalls()
+        self.border_walls = BorderWalls()
         self.interior_walls = []
         self.interior_walls.append(
             Wall(name='inner_vertical', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
@@ -15,7 +15,7 @@ class Map():
         )
     
     
-class BoarderWalls(Entity):
+class BorderWalls(Entity):
     def __init__(self, walls_scale_pos_list: list = 
             [
                 [(35, 0.5, 1), (0, -9, 0), color.gray], 
@@ -25,7 +25,7 @@ class BoarderWalls(Entity):
             ]
         ):
         self.wall_dict = {}
-        self.name_list = ['lower_board_wall', 'upper_board_wall', 'left_board_wall', 'right_board_wall']
+        self.name_list = ['lower_border_wall', 'upper_border_wall', 'left_border_wall', 'right_border_wall']
         for i in range(len(walls_scale_pos_list)):
             name = self.name_list[i]
             scale = walls_scale_pos_list[i][0]
