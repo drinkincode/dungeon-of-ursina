@@ -26,5 +26,4 @@ map_1 = Map()
 # Add interactive elements
 player = Player(position=(-3, -2, 0))
 
-
 app.run()

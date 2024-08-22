@@ -1,4 +1,5 @@
 from ursina import *
+from utils.entity.top_corner_anchor import get_top_left_corner, top_left_to_center
 class BaseStat(Entity):
 
     def __init__(self, name, statMax, color, position, scale=(0.5, 0.015), **kwargs):
@@ -13,6 +14,7 @@ class BaseStat(Entity):
         self.name = name
         self.stat_value = statMax
         self.statMax = statMax
+        self.TOP_LEFT_CORNER = get_top_left_corner(self)
         
     # return True if alive
     #   Fasle if dead
@@ -34,5 +36,6 @@ class BaseStat(Entity):
 
     def update(self):
         self.scale_x = self.stat_value
+        self.position = top_left_to_center(self.TOP_LEFT_CORNER, self.scale)
     
     

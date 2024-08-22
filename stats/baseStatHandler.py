@@ -1,14 +1,14 @@
 from stats.baseStat import BaseStat
 class BaseStatHandler():
-    def __init__(self, statsList, bar_x=1.05, bar_y=-0.25):
+    def __init__(self, statsList, bar_x=1.20, bar_y=-0.25):
         self.stats = []
+        self.stats_dict = {}
         for stat in statsList:
-            self.stats.append(BaseStat(
-                    name=stat[0], 
-                    statMax=stat[1], 
-                    color=stat[2], 
-                    position=(bar_x, bar_y)
-                )
+            self.stats_dict[stat[0]] = BaseStat(
+                name=stat[0], 
+                statMax=stat[1], 
+                color=stat[2], 
+                position=(bar_x, bar_y)
             )
             bar_y += 0.05
 
