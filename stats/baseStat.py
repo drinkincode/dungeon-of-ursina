@@ -1,6 +1,6 @@
 from ursina import *
 class BaseStat(Entity):
-    
+
     def __init__(self, name, statMax, color, position, scale=(0.5, 0.015), **kwargs):
         super().__init__(
             parent=camera.ui,
