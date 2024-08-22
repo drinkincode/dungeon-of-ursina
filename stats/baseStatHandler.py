@@ -1,9 +1,16 @@
 from stats.baseStat import BaseStat
 class BaseStatHandler():
-    def __init__(self, statsList):
+    def __init__(self, statsList, bar_x=1.20, bar_y=-0.25):
         self.stats = []
+        self.stats_dict = {}
         for stat in statsList:
-            self.stats.append(BaseStat(stat[0], stat[1]))
+            self.stats_dict[stat[0]] = BaseStat(
+                name=stat[0], 
+                statMax=stat[1], 
+                color=stat[2], 
+                position=(bar_x, bar_y)
+            )
+            bar_y += 0.05
 
     def print_stats(self):
         print('Stats -')

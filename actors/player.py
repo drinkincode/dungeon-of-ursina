@@ -10,15 +10,13 @@ class Player(Entity):
         self.scale_x = 2
         self.collider = 'box'
         self.speed = 5
-        self.jump_height = 0.3
-        self.gravity = 1
-        self.vertical_velocity = 0
-        self.grounded = False
         self.enabled_direction_dict = {'up': True, 'down': True, 'left': True, 'right': True}
+        
+        # stat: name, stat_max, color, position
         self.init_stat_list = [
-            ['health', 100],
-            ['stamina', 100],
-            ['mana', 100]
+            ['health', 0.15, color.red, (0, -0.05)],
+            ['stamina', 0.15, color.green, (0, 0)],
+            ['mana', 0.15, color.blue, (0, 0.05)]
         ] 
         self.stat_handler = BaseStatHandler(self.init_stat_list)
         
