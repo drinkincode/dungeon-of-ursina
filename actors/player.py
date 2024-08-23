@@ -1,27 +1,24 @@
 from ursina import *
 from stats.baseStat import BaseStat
 from stats.baseStatHandler import BaseStatHandler
-class Player(Entity):
-    def __init__(self, **kwargs):
-        super().__init__()
-        self.model = 'quad'
+from actors.actor import Actor
+class Player(Actor):
+    def __init__(self, position=(-3, -2, 0)):
         self.texture = 'player_sprite_cropped'
-        self.scale_y = 2
-        self.scale_x = 2
-        self.collider = 'box'
-        self.speed = 5
         self.enabled_direction_dict = {'up': True, 'down': True, 'left': True, 'right': True}
-        
-        # stat: name, stat_max, color, position
+        name = 'player'
         self.init_stat_list = [
-            ['health', 0.15, color.red, (0, -0.05)],
-            ['stamina', 0.15, color.green, (0, 0)],
-            ['mana', 0.15, color.blue, (0, 0.05)]
-        ] 
-        self.stat_handler = BaseStatHandler(self.init_stat_list)
-        
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+            ['health', 0.15, color.red, (0, -0.05), True],
+            ['stamina', 0.15, color.green, (0, 0), True],
+            ['mana', 0.15, color.blue, (0, 0.05), True]
+        ]
+        super().__init__(
+            name=name,
+            texture=self.texture, 
+            enabled_direction_dict=self.enabled_direction_dict, 
+            init_stat_list=self.init_stat_list,
+            position=position
+        )
 
     def update(self):
         self.movement()

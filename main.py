@@ -25,5 +25,5 @@ map_1 = Map()
 
 # Add interactive elements
 player = Player(position=(-3, -2, 0))
-# player.stat_handler.stats_dict['health'].reduce_points(0.05)
+player.stat_handler.stats_dict['health'].reduce_points(0.05)
 app.run()

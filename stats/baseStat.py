@@ -2,13 +2,14 @@ from ursina import *
 from utils.entity.top_corner_anchor import get_top_left_corner, top_left_to_center
 class BaseStat(Entity):
 
-    def __init__(self, name, statMax, color, position, scale=(0.5, 0.015), **kwargs):
+    def __init__(self, name, statMax, color, position, visible, scale=(0.5, 0.015),  **kwargs):
         super().__init__(
             parent=camera.ui,
             model='quad',
             color=color,
             scale=scale,
             position=position,
+            visible = visible,
             **kwargs
         )
         self.name = name

@@ -8,7 +8,8 @@ class BaseStatHandler():
                 name=stat[0], 
                 statMax=stat[1], 
                 color=stat[2], 
-                position=(bar_x, bar_y)
+                position=(bar_x, bar_y),
+                visible=stat[3]
             )
             bar_y += 0.05
 
