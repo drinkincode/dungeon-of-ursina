@@ -17,9 +17,10 @@ class Player(Actor):
             texture=self.texture, 
             enabled_direction_dict=self.enabled_direction_dict, 
             init_stat_list=self.init_stat_list,
-            position=position
+            position=position,
+            update = self.update
         )
-
+        
     def update(self):
         self.movement()
 

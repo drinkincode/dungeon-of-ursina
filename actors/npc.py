@@ -30,9 +30,10 @@ class Npc(Actor):
             enabled_direction_dict=self.enabled_direction_dict, 
             init_stat_list=self.init_stat_list,
             position=position,
-            speed=speed
+            speed=speed,
+            update = self.update
         )
-
+        
     def update(self):
         self.movement()
 
