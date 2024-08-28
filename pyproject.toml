@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dungeon-of-ursina"
+version = "0.0.1"
+authors = [
+  { name="DrinkinCode", email="jonnysmith696910@gmail.com" }
+]
+description = "Dungeon game using the Ursina game engine"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "ursina",
+  "python-statemachine",
+]
+
+[template.plugins.default]
+src-layout = true
+
+[project.urls]
+Homepage = "https://github.com/drinkincode/dungeon-of-ursina"
+Issues = "https://github.com/drinkincode/dungeon-of-ursina/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/DoU"]
+
+[project.scripts]
+DoU = "DoU.main:main"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
