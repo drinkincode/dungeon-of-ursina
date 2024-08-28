@@ -8,9 +8,9 @@ class Player(Actor):
         self.enabled_direction_dict = {'up': True, 'down': True, 'left': True, 'right': True}
         name = 'player'
         self.init_stat_list = [
-            ['health', 0.15, color.red, (0, -0.05), True],
-            ['stamina', 0.15, color.green, (0, 0), True],
-            ['mana', 0.15, color.blue, (0, 0.05), True]
+            ['health', 0.15, color.red, True],
+            ['stamina', 0.15, color.green, True],
+            ['mana', 0.15, color.blue, True]
         ]
         super().__init__(
             name=name,
