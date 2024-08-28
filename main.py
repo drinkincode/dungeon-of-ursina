@@ -27,6 +27,15 @@ map_1 = Map()
 player = Player(position=(-3, -2, 0))
 player.stat_handler.stats_dict['health'].reduce_points(0.05)
 
+
+# [
+#     {
+#         'atkName': 'punch',
+#         'atkDamage': 10,
+#         'atkLevel': 1,
+#         'atkCost': []
+#     }
+# ]
 npc = Npc()
 
 app.run()

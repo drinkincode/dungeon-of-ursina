@@ -1,6 +1,7 @@
 from ursina import *
 from stats.baseStat import BaseStat
 from stats.baseStatHandler import BaseStatHandler
+from attacks.attackHandler import AttackHandler
 class Actor(Entity):
     def __init__(
             self, 
@@ -14,6 +15,7 @@ class Actor(Entity):
             model = 'quad',
             collider = 'box',
             update = None,
+            init_attack_list = []
         ):
         super().__init__()
         self.model = model
@@ -27,3 +29,10 @@ class Actor(Entity):
         # stat: name, stat_max, color, position
         self.stat_handler = BaseStatHandler(init_stat_list)
         self.original_update = update
+        
+        self.init_attack_list = init_attack_list
+        self.attack_handler = AttackHandler(self.init_attack_list)
+        
+        
+        
+        
