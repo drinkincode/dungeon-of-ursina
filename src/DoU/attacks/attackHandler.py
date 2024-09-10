@@ -1,4 +1,4 @@
-from attacks.attack import Attack
+from DoU.attacks.attack import Attack
 class AttackHandler():
     def __init__(self, __attackList=[]):
         self.attackList = []

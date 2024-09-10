@@ -1,5 +1,5 @@
 from ursina import *
-from actors.player import Player
+from DoU.actors.player import Player
 # Assuming player is already defined elsewhere and has a basestathandler attribute
 # from player_module import player  # Example import if player is defined in another module
 

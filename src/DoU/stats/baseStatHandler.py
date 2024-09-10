@@ -1,4 +1,4 @@
-from stats.baseStat import BaseStat
+from DoU.stats.baseStat import BaseStat
 class BaseStatHandler():
     def __init__(self, statsList, bar_x=1.20, bar_y=-0.25):
         self.stats = []

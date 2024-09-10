@@ -1,6 +1,6 @@
 from ursina import *
-from actors.player import Player
-from utils.entity.top_corner_anchor import get_top_left_corner, top_left_to_center
+from DoU.actors.player import Player
+from DoU.utils.entity.top_corner_anchor import get_top_left_corner, top_left_to_center
 
 window.borderless = False
 app = Ursina()

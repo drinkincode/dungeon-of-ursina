@@ -1,7 +1,7 @@
 from ursina import *
-from stats.baseStat import BaseStat
-from stats.baseStatHandler import BaseStatHandler
-from attacks.attackHandler import AttackHandler
+from DoU.stats.baseStat import BaseStat
+from DoU.stats.baseStatHandler import BaseStatHandler
+from DoU.attacks.attackHandler import AttackHandler
 class Actor(Entity):
     def __init__(
             self, 
