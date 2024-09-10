@@ -33,6 +33,17 @@ class Map():
             self.interior_walls.append(
                 Wall(name='inner_horizontal2', color=self.wall_color, scale=(12, 0.5, 1), position=(11.5, 6, 0))
             )
+            
+        if map_id == 2:
+            self.wall_color = color.blue
+            self.border_walls = create_walls()
+            self.interior_walls = []
+            self.interior_walls.append(
+                Wall(name='inner_vertical', color=self.wall_color, scale=(10, 14.5, 1), position=(-12.25, -1.5, 0))
+            )
+            self.interior_walls.append(
+                Wall(name='inner_vertical', color=self.wall_color, scale=(10, 14.5, 1), position=(12.25, -1.5, 0))
+            )
         
 
 def create_walls(

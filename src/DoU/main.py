@@ -21,7 +21,7 @@ def input(key):
 
 
 # Define the map layout
-map_1 = Map(map_id=0)
+map_1 = Map(map_id=2)
 
 # Add interactive elements
 player = Player(position=(-3, -2, 0))
