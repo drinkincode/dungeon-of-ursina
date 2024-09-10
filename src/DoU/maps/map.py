@@ -19,16 +19,17 @@ class Map():
             self.create_map(map_id)
     def create_map(self, map_id):
         if map_id == 1:
+            self.wall_color = color.violet
             self.border_walls = create_walls()
             self.interior_walls = []
             self.interior_walls.append(
-                Wall(name='inner_vertical', color=color.gray, scale=(0.5, 12, 1), position=(0, -1.5, 0))
+                Wall(name='inner_vertical', color=self.wall_color, scale=(0.5, 14.5, 1), position=(0, -1.5, 0))
             )
             self.interior_walls.append(
-                Wall(name='inner_horizontal', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
+                Wall(name='inner_horizontal', color=self.wall_color, scale=(5, 0.5, 1), position=(0, 6, 0))
             )
             self.interior_walls.append(
-                Wall(name='inner_horizontal2', color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
+                Wall(name='inner_horizontal2', color=self.wall_color, scale=(12, 0.5, 1), position=(11.5, 6, 0))
             )
         
 
