@@ -1,7 +1,7 @@
 from ursina import *
-from stats.baseStat import BaseStat
-from stats.baseStatHandler import BaseStatHandler
-from actors.actor import Actor
+from DoU.stats.baseStat import BaseStat
+from DoU.stats.baseStatHandler import BaseStatHandler
+from DoU.actors.actor import Actor
 class Player(Actor):
     def __init__(self, position=(-3, -2, 0)):
         self.texture = 'player_sprite_cropped'

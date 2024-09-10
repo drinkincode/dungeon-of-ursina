@@ -1,5 +1,5 @@
 from ursina import *
-from actors.actor import Actor
+from DoU.actors.actor import Actor
 class PauseMenu(Entity):
     def __init__(self):
         super().__init__(

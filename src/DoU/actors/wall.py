@@ -1,5 +1,5 @@
 from ursina import *
-from actors.actor import Actor
+from DoU.actors.actor import Actor
 
 class Wall(Actor):
     def __init__(self, name: str, scale: tuple, position: tuple, color: color):

@@ -1,5 +1,5 @@
 from ursina import *
-from actors.wall import Wall
+from DoU.actors.wall import Wall
 
 class Map():
     def __init__(self):

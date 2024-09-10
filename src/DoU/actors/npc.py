@@ -1,7 +1,7 @@
 from ursina import *
-from stats.baseStat import BaseStat
-from stats.baseStatHandler import BaseStatHandler
-from actors.actor import Actor
+from DoU.stats.baseStat import BaseStat
+from DoU.stats.baseStatHandler import BaseStatHandler
+from DoU.actors.actor import Actor
 from ursina import Vec3
 
 class Npc(Actor):

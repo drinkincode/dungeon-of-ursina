@@ -1,10 +1,10 @@
 from ursina import *
 from ursina.prefabs.platformer_controller_2d import PlatformerController2d
-from maps.map import Map
-from actors.actor import Actor
-from actors.player import Player
-from actors.npc import Npc
-from menus.pause_menu import PauseMenu
+from DoU.maps.map import Map
+from DoU.actors.actor import Actor
+from DoU.actors.player import Player
+from DoU.actors.npc import Npc
+from DoU.menus.pause_menu import PauseMenu
 
 app = Ursina()
 window.borderless = False
@@ -15,9 +15,9 @@ camera.fov = 20
 pause_menu = PauseMenu()
 
 def input(key):
-        if key == 'escape':
-            pause_menu.enabled = not pause_menu.enabled
-            pause_menu.toggle_pause()
+    if key == 'escape':
+        pause_menu.enabled = not pause_menu.enabled
+        pause_menu.toggle_pause()
 
 
 # Define the map layout
