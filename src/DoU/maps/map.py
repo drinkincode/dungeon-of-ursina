@@ -2,19 +2,20 @@ from ursina import *
 from DoU.actors.wall import Wall
 
 class Map():
-    def __init__(self):
-        self.border_walls = create_walls()
-        self.interior_walls = []
-        self.interior_walls.append(
-            Wall(name='inner_vertical', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
-        )
-        self.interior_walls.append(
-            Wall(name='inner_horizontal', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
-        )
-        self.interior_walls.append(
-            Wall(name='inner_horizontal2', color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
-        )
-    
+    def __init__(self, map_id = 0):
+        if map_id == 0:
+            self.border_walls = create_walls()
+            self.interior_walls = []
+            self.interior_walls.append(
+                Wall(name='inner_vertical', color=color.gray, scale=(0.5, 15, 1), position=(0, -1.5, 0))
+            )
+            self.interior_walls.append(
+                Wall(name='inner_horizontal', color=color.gray, scale=(5, 0.5, 1), position=(0, 6, 0))
+            )
+            self.interior_walls.append(
+                Wall(name='inner_horizontal2', color=color.gray, scale=(12, 0.5, 1), position=(11.5, 6, 0))
+            )
+        
     
 
 def create_walls(
